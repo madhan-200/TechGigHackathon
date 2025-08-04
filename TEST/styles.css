@@ -1,0 +1,195 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #222;
+  min-height: 100vh;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.mode-section {
+  width: 100%;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  margin: 1.5rem 0;
+  padding: 2rem 1.5rem;
+  opacity: 1;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+.mode-section.hidden {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  transform: translateY(30px);
+}
+
+.mode-section h2 {
+  text-align: center;
+  margin: 0 0 1.5rem 0;
+  color: #4a5568;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* Button Styles */
+button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin: 0.5rem;
+  min-width: 100px;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Input Styles */
+input[type="time"], input[type="number"] {
+  width: 100%;
+  max-width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  transition: border-color 0.2s ease;
+  background: white;
+  box-sizing: border-box;
+  display: block;
+  position: relative;
+}
+
+input[type="time"]:focus, input[type="number"]:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Label Styles */
+label {
+  display: block;
+  margin: 1rem 0 0.5rem 0;
+  font-weight: 500;
+  color: #4a5568;
+}
+
+/* Display Styles */
+#stopwatch-display, #timer-display {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 1.5rem 0;
+  color: #2d3748;
+  font-family: 'Courier New', monospace;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Status Display */
+#alarm-status {
+  text-align: center;
+  margin: 1rem 0;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  background: #f7fafc;
+  color: #4a5568;
+  font-weight: 500;
+}
+
+/* Weather Info */
+#weather-info {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+/* Mode Indicator */
+#mode-indicator {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: white;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .mode-section {
+    padding: 1.5rem 1rem;
+    max-width: 95vw;
+    margin: 1rem 0;
+    width: calc(100vw - 2rem);
+  }
+  
+  .mode-section h2 {
+    font-size: 1.5rem;
+  }
+  
+  #stopwatch-display, #timer-display {
+    font-size: 2.5rem;
+  }
+  
+  button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    margin: 0.3rem;
+  }
+  
+  input[type="time"], input[type="number"] {
+    width: 100%;
+    max-width: 100%;
+    margin: 0.3rem 0;
+    box-sizing: border-box;
+  }
+}
+
+/* Animation for smooth transitions */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mode-section:not(.hidden) {
+  animation: fadeInUp 0.4s ease-out;
+}
